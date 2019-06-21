@@ -1,0 +1,16 @@
+<% @todos.each_slice(3) do |todos|%>
+<div class='row'>
+<% todos.each do |todo| %>
+
+<div class="card" style="width: 18rem;">
+<%= image_tag  todo.task.photo, class: "card-img-top", style: todo_color(todo) %>
+  <div class="card-body">
+    <h5 class="card-title"><%= todo.task.title %></h5>
+    <h5 class="card-title"><%= todo.completed %></h5>
+    <%= link_to  completed_button(todo) , update_todo_path(todo), method: :patch %>
+    <%= link_to  "Detalle", todo %>
+  </div>
+</div>
+    <% end %>
+    </div>
+<% end %>
